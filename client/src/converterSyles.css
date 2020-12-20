@@ -1,0 +1,15 @@
+body {
+  background: #d2691e;
+}
+
+.main {
+  height: auto;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 5px;
+  background-color: lavender;
+}
+
+.title {
+  text-align: center;
+}
