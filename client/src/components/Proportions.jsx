@@ -12,9 +12,7 @@ const Proportions = (props) => {
     // validate input
       let temp = input;
       if (temp.includes('/')) {
-        console.log(typeof temp);
         let fraction = temp.split("/");
-        console.log(fraction);
         temp = Number(fraction[0] / Number(fraction[1]));
       }
       if (!Number(temp)) {
