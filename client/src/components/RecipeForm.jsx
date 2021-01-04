@@ -1,5 +1,4 @@
 import React from 'react';
-import Ingredient from './Ingredient.jsx';
 
 // handle new ingredient inputs
 

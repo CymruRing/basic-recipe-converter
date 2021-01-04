@@ -27,7 +27,7 @@ class App extends React.Component {
   setNewIngredient(newIngredient) {
     let temp = this.state.ingredients.concat(newIngredient);
     this.setState({ingredients: temp});
-  }
+  } 
 
   render() {
     return (
@@ -38,9 +38,7 @@ class App extends React.Component {
         <div>
           <RecipeTitle hasTitle={this.state.hasTitle} title={this.state.title} setTitle={this.setTitle.bind(this)} />
         </div>
-        <ul>
-          <Recipe />
-        </ul>
+          <Recipe ingredients={this.state.ingredients} />
         <div>
           <RecipeForm pushIngredient={this.setNewIngredient.bind(this)}/>
         </div>
