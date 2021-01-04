@@ -1,8 +1,9 @@
 import React from 'react';
-
+// move to hooks
 import Ingredient from './Ingredient.jsx';
 
 class RecipeForm extends React.Component {
+  
   constructor(props) {
     super(props);
     console.log(this.props);
@@ -11,18 +12,19 @@ class RecipeForm extends React.Component {
       quantity: 0,
       measurement: ''
     };
-    //pushIngredient = this.props.pushIngredient;
-    this.addIngredient.bind(this);
   }
+
   // push values to the app and reset fields
   addIngredient() {
+    console.log('addIngredient');
     // test valid inputs ...
-    // push to main
-    console.log(state);
-    //this.props.pushIngredient(this.state);
-
+    // push to app
+    console.log(this.state);
+    this.props.pushIngredient(this.state, () => {
+      this.setState({ingredient: '', quantity: '', measurement: 0});
+    });
     // clear fields
-
+    
   }
 
   inputHandler(event) {
@@ -31,11 +33,16 @@ class RecipeForm extends React.Component {
     });
   }
 
+  optionHandler(option) {
+
+  }
+
   render() {
     return (
       <div>
         <span> 
-          <input id='ingredient' onChange={this.inputHandler.bind(this)} placeholder='ingredient'></input>
+          <input id='ingredient' onChange={this.inputHandler.bind(this)} 
+          placeholder='ingredient' value={this.state.ingredient}></input>
           <input id='quantity' onChange={this.inputHandler.bind(this)} placeholder='quantity'></input>
           <select>
             <option id='measurement' onChange={this.inputHandler.bind(this)} select='selected'>measurement</option>
@@ -45,12 +52,12 @@ class RecipeForm extends React.Component {
           </select>
         </span>
         <div>
-          <button onClick={this.addIngredient}>Add Ingredient</button>
+          <button onClick={this.addIngredient.bind(this)}>Add Ingredient</button>
         </div>
       </div>
 
     );
   }
-}
+};
 
 export default RecipeForm;
