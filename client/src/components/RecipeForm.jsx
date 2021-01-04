@@ -1,54 +1,62 @@
 import React from 'react';
-// move to hooks
 import Ingredient from './Ingredient.jsx';
+
+// handle new ingredient inputs
 
 class RecipeForm extends React.Component {
   
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.state = {
       ingredient: '',
-      quantity: 0,
+      quantity: '',
       measurement: ''
     };
   }
 
   // push values to the app and reset fields
   addIngredient() {
-    console.log('addIngredient');
-    // test valid inputs ...
+    // test valid inputs 
+      // ...
     // push to app
-    console.log(this.state);
-    this.props.pushIngredient(this.state, () => {
-      this.setState({ingredient: '', quantity: '', measurement: 0});
-    });
+    let temp = this.state;
+    this.props.pushIngredient(temp);
     // clear fields
-    
-  }
+    this.setState({ingredient: '', quantity: '', measurement: 'measurement'});
 
+  }
+  // change state as inputs change
   inputHandler(event) {
     this.setState({
       [event.target.id]: event.target.value
     });
   }
 
-  optionHandler(option) {
-
-  }
-
   render() {
     return (
       <div>
         <span> 
-          <input id='ingredient' onChange={this.inputHandler.bind(this)} 
-          placeholder='ingredient' value={this.state.ingredient}></input>
-          <input id='quantity' onChange={this.inputHandler.bind(this)} placeholder='quantity'></input>
-          <select>
-            <option id='measurement' onChange={this.inputHandler.bind(this)} select='selected'>measurement</option>
-            <option>tsp</option>
-            <option>tbsp</option>
-            <option>cup</option>
+          <input 
+            id='ingredient' 
+            onChange={this.inputHandler.bind(this)} 
+            placeholder='ingredient' 
+            value={this.state.ingredient}
+            ></input>
+          <input 
+            id='quantity'
+            onChange={this.inputHandler.bind(this)}
+            placeholder='quantity'
+            value={this.state.quantity}
+            ></input>
+          <select 
+            id='measurement' 
+            onChange={this.inputHandler.bind(this)}
+            value={this.state.measurement}
+            >
+            <option value='measurement'>measurement</option>
+            <option value='tsp'>tsp</option>
+            <option value='tbsp'>tbsp</option>
+            <option value='cup'>cup</option>
           </select>
         </span>
         <div>
