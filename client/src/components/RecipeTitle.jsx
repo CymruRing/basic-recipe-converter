@@ -13,9 +13,16 @@ const RecipeTitle = (props) => {
     props.setTitle(title);
   };
 
+  const allowEdit = () => {
+    console.log('allow title change here');
+  };
+
   if (props.hasTitle) {
     return (
-      <h2>{props.title}</h2>
+        <h2>
+          {props.title}  
+          <span className='edit' onClick={allowEdit}>edit</span>
+        </h2>      
     );
   } else {
     return (

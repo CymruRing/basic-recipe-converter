@@ -13,3 +13,9 @@ body {
 .title {
   text-align: center;
 }
+
+.edit {
+  font-size: 50%;
+  color: blue;
+  text-decoration: underline;
+}
