@@ -4,30 +4,44 @@ import React, { useState } from 'react';
 
 const RecipeTitle = (props) => {
   const [title, setTitle] = useState(props.title);
+  const [highlightEdit, setHighlightEdit] = useState('edit');
 
+  // input handler
   const updateTitle = (e) => {
     setTitle(title => e.target.value);
-  };
+  };    
+  
+  // push title to app
   const submitTitle = () => {
-    // push title to app
     props.setTitle(title);
   };
 
+  // allow user to edit input
   const allowEdit = () => {
-    console.log('allow title change here');
+    setHighlightEdit('edit');
+    props.allowTitleEdit();
   };
 
+  // if exists render title else render input
   if (props.hasTitle) {
     return (
         <h2>
           {props.title}  
-          <span className='edit' onClick={allowEdit}>edit</span>
+          <span 
+            className={highlightEdit}
+            onClick={allowEdit}
+            onMouseEnter={() => setHighlightEdit('editHover')}
+            onMouseLeave={() => setHighlightEdit('edit')}>edit</span>
         </h2>      
     );
   } else {
     return (
       <span>
-        <input id='title' placeholder='Recipe Title' onChange={updateTitle}></input>
+        <input 
+          id='titleInput'
+          placeholder='Recipe Title' 
+          onChange={updateTitle} 
+        ></input>
         <button onClick={submitTitle}>Enter</button> 
       </span>
     );
