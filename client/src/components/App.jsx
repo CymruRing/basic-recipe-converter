@@ -1,11 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-//import { render } from 'react-dom';
+
 import styles from '../converterStyles.css';
 
 import RecipeForm from './RecipeForm.jsx';
 import RecipeTitle from './RecipeTitle.jsx';
 import Recipe from './Recipe.jsx';
+
 
 class App extends React.Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class App extends React.Component {
       hasTitle: false,
       title: '',
       ingredients: [],
-
     };
   }
 
