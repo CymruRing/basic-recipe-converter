@@ -1,5 +1,5 @@
 body {
-  background: #d2691e;
+  background: rgb(36, 36, 36);
 }
 
 .main {
@@ -8,19 +8,42 @@ body {
   margin-right: 15%;
   padding: 5px;
   background-color: lavender;
+  height: 100vh;
 }
 
 .title {
   text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
 }
 
 .edit {
   font-size: 50%;
   color: blue;
 }
+
 .editHover {
   font-size: 50%;
   color: orange;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.footer {
+  position: fixed;
+  right: 17%;
+  bottom: 4%;
+  font-size: x-small;
+  color: rgb(36, 36, 36);
+}
+
+#ingredientPlaceHolder {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+#recipeTitle {
+  margin-left: 20px;
 }

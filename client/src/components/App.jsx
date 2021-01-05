@@ -58,9 +58,13 @@ class App extends React.Component {
           allowTitleEdit={this.allowTitleEdit.bind(this)}  
         />
         </div>
-          <Recipe ingredients={this.state.ingredients} deleteIngredient={this.deleteIngredient.bind(this)}/>
-        <div>
           <RecipeForm pushIngredient={this.setNewIngredient.bind(this)}/>
+        <div>
+          <Recipe ingredients={this.state.ingredients} deleteIngredient={this.deleteIngredient.bind(this)}/>
+
+        </div>
+        <div className='footer'>
+          © Dylan Ring
         </div>
       </div>
     );

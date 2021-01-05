@@ -57,10 +57,8 @@ class RecipeForm extends React.Component {
             <option value='tbsp'>tbsp</option>
             <option value='cup'>cup</option>
           </select>
-        </span>
-        <div>
           <button onClick={this.addIngredient.bind(this)}>Add Ingredient</button>
-        </div>
+        </span>
       </div>
 
     );

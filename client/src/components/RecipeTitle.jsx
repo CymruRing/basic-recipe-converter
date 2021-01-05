@@ -25,7 +25,7 @@ const RecipeTitle = (props) => {
   // if exists render title else render input
   if (props.hasTitle) {
     return (
-        <h2>
+        <h2 id='recipeTitle'>
           {props.title}  
           <span 
             className={highlightEdit}

@@ -13,29 +13,36 @@ const Recipe = (props) => {
   const deleteIngredient = (event) => {
     props.deleteIngredient(event.target.id)
   };
-
-  return (
-
-    <div>
-      <Proportions pushProChange={updateHook} />
-      <ul>
-        {props.ingredients.map((aIngredient) => (
-          <li key={aIngredient.ingredient} 
-            id={aIngredient.ingredient} onClick={deleteIngredient}>
-            {aIngredient.ingredient} {Number(aIngredient.quantity) * proportion} {aIngredient.measurement}
-            <span 
-              className={highlightEdit}
-              id={aIngredient.ingredient}
-              onMouseEnter={() => setHighlightEdit('editHover')}
-              onMouseLeave={() => setHighlightEdit('edit')}
-            >delete
-            </span>
-            
-          </li>
-        ))}
-      </ul> 
-    </div>
-  );
+  
+  if (props.ingredients.length === 0) {
+    return (
+      <div>
+        <div id='ingredientPlaceHolder'>Your Ingredients will go here!</div>
+        <Proportions pushProChange={updateHook} />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <ul>
+          {props.ingredients.map((aIngredient) => (
+            <li key={aIngredient.ingredient} 
+              id={aIngredient.ingredient} onClick={deleteIngredient}>
+              {aIngredient.ingredient} {Number(aIngredient.quantity) * proportion} {aIngredient.measurement}
+              <span 
+                className={highlightEdit}
+                id={aIngredient.ingredient}
+                onMouseEnter={() => setHighlightEdit('editHover')}
+                onMouseLeave={() => setHighlightEdit('edit')}
+              >delete
+              </span>
+            </li>
+          ))}
+        </ul> 
+        <Proportions pushProChange={updateHook} />
+      </div>
+    );
+  }
 };
 
 export default Recipe;
